@@ -26,19 +26,16 @@ const Navbar = () => {
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
-    setOpen(false);
     const element = document.getElementById(targetId.substring(1));
     if (element) {
-      const navbarHeight = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - navbarHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+      // Use native scrollIntoView which is universally supported on mobile
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
       window.history.pushState(null, "", targetId);
     }
+    // Delay closing the menu by 300ms to allow the smooth scroll animation to begin unimpeded
+    setTimeout(() => {
+      setOpen(false);
+    }, 300);
   };
 
   return (
