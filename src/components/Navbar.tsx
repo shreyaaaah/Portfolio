@@ -28,8 +28,16 @@ const Navbar = () => {
     e.preventDefault();
     const element = document.getElementById(targetId.substring(1));
     if (element) {
-      // Use native scrollIntoView which is universally supported on mobile
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const navbarHeight = 85;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
       window.history.pushState(null, "", targetId);
     }
     // Delay closing the menu by 300ms to allow the smooth scroll animation to begin unimpeded
