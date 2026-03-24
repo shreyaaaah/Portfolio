@@ -30,7 +30,7 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden pt-20">
+    <section id="hero" className="relative w-full lg:min-h-[100dvh] flex items-start lg:items-center overflow-x-hidden pt-32 pb-24 lg:pt-20 lg:pb-0">
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-primary to-secondary rounded-full blur-[160px] opacity-[0.12]" />
@@ -130,7 +130,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, x: 0, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
             variants={{ hover: { y: -15, scale: 1.08, transition: { duration: 0.3 } } }}
-            className="absolute -right-4 top-10 lg:-right-12 lg:top-16 glass rounded-2xl px-6 py-4 shadow-xl border-white/[0.1] z-20 backdrop-blur-xl"
+            className="absolute right-0 -bottom-6 lg:-right-12 lg:top-16 lg:bottom-auto glass rounded-2xl px-6 py-4 shadow-xl border-white/[0.1] z-20 backdrop-blur-xl"
             style={{ background: "linear-gradient(145deg, rgba(30,30,40,0.8) 0%, rgba(20,20,30,0.8) 100%)" }}
           >
             <p className="text-xs text-muted-foreground font-medium mb-1">Projects Completed</p>
@@ -145,7 +145,7 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="absolute bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20"
       >
         <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground font-semibold">Scroll</span>
         <a href="#about" className="animate-bounce mt-1 text-muted-foreground hover:text-primary transition-colors cursor-pointer">
