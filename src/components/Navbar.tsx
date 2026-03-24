@@ -24,6 +24,23 @@ const Navbar = () => {
     }
   }, [isLight]);
 
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    setOpen(false);
+    const element = document.getElementById(targetId.substring(1));
+    if (element) {
+      const navbarHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - navbarHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+      window.history.pushState(null, "", targetId);
+    }
+  };
+
   return (
     <motion.nav
       initial={{ y: -40, opacity: 0 }}
@@ -42,6 +59,7 @@ const Navbar = () => {
             <li key={l.href}>
               <a
                 href={l.href}
+                onClick={(e) => handleScroll(e, l.href)}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-300"
               >
                 {l.label}
@@ -103,8 +121,8 @@ const Navbar = () => {
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    onClick={() => setOpen(false)}
-                    className="block py-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    onClick={(e) => handleScroll(e, l.href)}
+                    className="block py-2 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                   >
                     {l.label}
                   </a>
@@ -119,8 +137,8 @@ const Navbar = () => {
                 </button>
                 <a
                   href="#contact"
-                  onClick={() => setOpen(false)}
-                  className="block text-center text-sm font-medium px-5 py-2.5 rounded-lg bg-primary/10 text-primary border border-primary/20"
+                  onClick={(e) => handleScroll(e, "#contact")}
+                  className="block text-center text-sm font-medium px-5 py-2.5 rounded-lg bg-primary/10 text-primary border border-primary/20 cursor-pointer"
                 >
                   Hire Me
                 </a>
