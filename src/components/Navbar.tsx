@@ -53,12 +53,14 @@ const Navbar = () => {
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className="fixed top-0 left-0 right-0 z-50 glass"
     >
-      <div className="container mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#" className="text-lg font-bold tracking-tight text-foreground">
-          Shreya S
-        </a>
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 py-3 md:py-4">
+        {/* Desktop Container Wrapper */}
+        <div className="w-full flex items-center justify-between">
+          <a href="#" className="hidden md:block text-lg font-bold tracking-tight text-foreground">
+            Shreya S
+          </a>
 
-        {/* Desktop */}
+        {/* Desktop Navigation */}
         <ul className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <li key={l.href}>
@@ -74,6 +76,7 @@ const Navbar = () => {
           <li>
             <a
               href="#contact"
+              onClick={(e) => handleScroll(e, "#contact")}
               className="text-sm font-medium px-5 py-2 rounded-lg bg-primary/10 text-primary border border-primary/20 hover:bg-primary/20 transition-all duration-300"
             >
               Hire Me
@@ -100,68 +103,33 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
+        </div>
 
-        {/* Mobile toggle */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden flex items-center justify-center p-2 rounded-lg bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all focus:outline-none"
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={24} color="white" /> : <Menu size={24} color="white" />}
-        </button>
+        {/* Mobile Navigation (Floating Pill Scrollable) */}
+        <div className="md:hidden w-full flex justify-center pb-2">
+          <div className="flex items-center overflow-x-auto no-scrollbar glass rounded-[2rem] px-1 py-1 sm:px-2 sm:py-2 border border-white/[0.08] w-[95vw] shadow-[0_8px_32px_rgba(0,0,0,0.4)] relative" style={{ background: "rgba(10, 10, 15, 0.85)", backdropFilter: "blur(20px)" }}>
+            {links.map((l, i) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={(e) => handleScroll(e, l.href)}
+                className="relative px-5 py-3 text-[11px] font-bold tracking-[0.15em] uppercase whitespace-nowrap transition-all duration-300 text-muted-foreground hover:text-white flex-shrink-0 active:scale-95 text-shadow-sm rounded-full active:bg-white/10"
+              >
+                {l.label}
+              </a>
+            ))}
+            
+            {/* Theme Toggle within Mobile Pill */}
+            <button
+              onClick={() => setIsLight(!isLight)}
+              className="ml-2 px-3 py-2 rounded-full bg-white/5 border border-white/10 text-muted-foreground hover:text-white hover:bg-white/10 transition-all flex-shrink-0 active:scale-95"
+              aria-label="Toggle Theme"
+            >
+              {isLight ? <Moon size={14} /> : <Sun size={14} />}
+            </button>
+          </div>
+        </div>
       </div>
-
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden glass border-t border-white/[0.06]"
-          >
-            <ul className="flex flex-col gap-1 px-6 py-4">
-              {links.map((l) => (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
-                    onClick={(e) => handleScroll(e, l.href)}
-                    className="block py-2 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-              <li className="pt-2 flex flex-col gap-2">
-                <button
-                  onClick={() => { setIsLight(!isLight); setOpen(false); }}
-                  className="flex justify-center items-center gap-2 text-center text-sm font-medium px-5 py-2.5 rounded-lg border border-white/[0.08] text-foreground hover:bg-white/[0.05] transition-all"
-                >
-                  {isLight ? <><Moon size={16} /> Dark Mode</> : <><Sun size={16} /> Light Mode</>}
-                </button>
-                <a
-                  href="#contact"
-                  onClick={(e) => handleScroll(e, "#contact")}
-                  className="block text-center text-sm font-medium px-5 py-2.5 rounded-lg bg-primary/10 text-primary border border-primary/20 cursor-pointer"
-                >
-                  Hire Me
-                </a>
-                <a
-                  href="/SHREYA%20S%20CV.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  download="Shreya_S_Resume.pdf"
-                  onClick={() => setOpen(false)}
-                  className="flex justify-center items-center gap-2 text-center text-sm font-semibold px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary to-secondary text-white glow-primary"
-                >
-                  <Download size={16} /> Download
-                </a>
-              </li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.nav>
   );
 };
