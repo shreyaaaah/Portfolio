@@ -84,7 +84,7 @@ const ContactSection = () => {
                     type="text"
                     name="name"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-foreground text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/40 transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-card border border-border shadow-sm text-foreground text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/40 transition-all"
                     placeholder="Your name"
                   />
                 </div>
@@ -94,7 +94,7 @@ const ContactSection = () => {
                     type="email"
                     name="email"
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-foreground text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/40 transition-colors"
+                    className="w-full px-4 py-3 rounded-xl bg-card border border-border shadow-sm text-foreground text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/40 transition-all"
                     placeholder="you@example.com"
                   />
                 </div>
@@ -104,7 +104,7 @@ const ContactSection = () => {
                     name="message"
                     required
                     rows={4}
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] text-foreground text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/40 transition-colors resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-card border border-border shadow-sm text-foreground text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/40 focus:ring-1 focus:ring-primary/40 transition-all resize-none"
                     placeholder="Let's talk about..."
                   />
                 </div>
@@ -126,7 +126,7 @@ const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="order-1 md:order-1 flex flex-col gap-4"
           >
-            <a href="https://github.com/shreyaaaah" target="_blank" rel="noopener noreferrer" className="bg-[#121214] border border-white/[0.05] rounded-[20px] p-5 flex items-center gap-5 hover:border-white/[0.1] hover:bg-white/[0.02] transition-colors duration-300">
+            <a href="https://github.com/shreyaaaah" target="_blank" rel="noopener noreferrer" className="bg-card border border-border shadow-sm rounded-[20px] p-5 flex items-center gap-5 hover:border-border/80 hover:bg-muted/50 transition-colors duration-300">
               <div className="w-12 h-12 rounded-xl bg-white/[0.03] flex items-center justify-center shrink-0 border border-white/[0.02]">
                 <Github size={20} className="text-muted-foreground" />
               </div>
@@ -136,7 +136,7 @@ const ContactSection = () => {
               </div>
             </a>
 
-            <a href="https://www.linkedin.com/in/shreya-s-vijay/" target="_blank" rel="noopener noreferrer" className="bg-[#121214] border border-white/[0.05] rounded-[20px] p-5 flex items-center gap-5 hover:border-white/[0.1] hover:bg-white/[0.02] transition-colors duration-300">
+            <a href="https://www.linkedin.com/in/shreya-s-vijay/" target="_blank" rel="noopener noreferrer" className="bg-card border border-border shadow-sm rounded-[20px] p-5 flex items-center gap-5 hover:border-border/80 hover:bg-muted/50 transition-colors duration-300">
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
                 <Linkedin size={20} className="text-primary" />
               </div>
@@ -146,7 +146,7 @@ const ContactSection = () => {
               </div>
             </a>
 
-            <a href="mailto:shreyashanthivijay@gmail.com" className="bg-[#121214] border border-white/[0.05] rounded-[20px] p-5 flex items-center gap-5 hover:border-white/[0.1] hover:bg-white/[0.02] transition-colors duration-300">
+            <a href="mailto:shreyashanthivijay@gmail.com" className="bg-card border border-border shadow-sm rounded-[20px] p-5 flex items-center gap-5 hover:border-border/80 hover:bg-muted/50 transition-colors duration-300">
               <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center shrink-0 border border-secondary/20">
                 <Mail size={20} className="text-secondary" />
               </div>
@@ -156,7 +156,7 @@ const ContactSection = () => {
               </div>
             </a>
 
-            <a href="tel:7736552508" className="bg-[#121214] border border-white/[0.05] rounded-[20px] p-5 flex items-center gap-5 hover:border-white/[0.1] hover:bg-white/[0.02] transition-colors duration-300">
+            <a href="tel:7736552508" className="bg-card border border-border shadow-sm rounded-[20px] p-5 flex items-center gap-5 hover:border-border/80 hover:bg-muted/50 transition-colors duration-300">
               <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center shrink-0 border border-purple-500/20">
                 <Phone size={20} className="text-purple-400" />
               </div>
@@ -171,7 +171,7 @@ const ContactSection = () => {
               target="_blank"
               rel="noopener noreferrer"
               download="Shreya_S_Resume.pdf"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/[0.08] text-muted-foreground text-sm font-semibold hover:text-foreground hover:border-white/[0.16] transition-all duration-300 shimmer mt-2"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-border bg-card shadow-sm text-muted-foreground text-sm font-semibold hover:text-foreground hover:bg-muted/50 transition-all duration-300 shimmer mt-2"
             >
               Download Resume <ArrowDown size={15} />
             </a>
