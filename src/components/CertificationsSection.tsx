@@ -68,8 +68,8 @@ const CertificationsSection = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-xs font-medium uppercase tracking-[0.2em] text-secondary mb-3">Certificates</p>
-          <h2 className="text-3xl font-semibold tracking-tight text-foreground mb-10">Certificates & Certifications</h2>
+          <p className="text-xs font-medium uppercase tracking-[0.2em] text-secondary mb-3">Achievements</p>
+          <h2 className="text-3xl font-semibold tracking-tight text-foreground mb-10">Certificates & Achievements</h2>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
