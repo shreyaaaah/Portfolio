@@ -92,7 +92,7 @@ I enjoy working at the intersection of:
 
 ## ✨ Live Portfolio
 
-(👉 Add your deployed link here after hosting)
+https://shreyaaaah-portfolio.vercel.app/
 
 ---
 
